@@ -11,7 +11,8 @@
 
 <body>
     <div id="div-header">
-        <input type="text" id="myInput" onkeyup="liveSearchFunction()" placeholder="Search for episode.." title="Type in a name">
+        <input type="text" id="myInput" onkeyup="liveSearchFunction()" placeholder="Search for episode.." title="Type in a name" onfocusout="divParaElems()">
+        <span id="Search-span"></span>
     </div>
 
     <div id="root">

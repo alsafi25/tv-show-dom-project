@@ -7,7 +7,7 @@
         display: inline-flex;
         padding: 2em 2em 2em 2em;
         align-content: center;
-        width: 100%;
+        width: 90%;
         flex-basis: auto;
         justify-content: space-between;
         margin-left: 2em;
@@ -20,7 +20,7 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        width: 30%;
+        width: 32%;
         /* border: 1em; */
         /* height: 30em; */
         /* padding: 2em 3em 3em 2em; */
@@ -49,6 +49,7 @@
         height: 25em; */
         margin-left: 1em;
         margin-right: 1em;
+        margin-bottom: 3em;
     }
     
     #myInput {
@@ -56,7 +57,7 @@
         /* padding: 2em; */
         /* position: absolute; */
         height: 1.5em;
-        width: 12em;
+        width: 14em;
         margin-left: 24em;
         position: absolute;
     }
@@ -79,7 +80,8 @@
     
     span {
         /* height: 1em; */
-        margin-left: 32em;
+        margin-top: 0.4em;
+        margin-left: 32.5em;
         position: absolute;
     }
     
@@ -102,7 +104,7 @@
     }
     
     select {
-        /* margin-left: 1em; */
+        margin-left: 0em;
         /* margin-top: 1em; */
         position: relative;
         height: 2em;
