@@ -118,16 +118,8 @@ function setup() {
     getShowIds(showIds);
     makePageForEpisodes(allEpisodes);
     createEpisodeSelect(allEpisodes);
-    showIds.sort((a, b) => {
-            if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                return 1;
-            } else if (b.name.toLowerCase() > a.name.toLowerCase()) {
-                return -1;
-            } else {
-                return 0;
-            }
-        })
-        // getAPIEpisodes(allShows);
+
+    // getAPIEpisodes(allShows);
 }
 
 
@@ -138,7 +130,8 @@ function getAPIEpisodes() {
     let showIds = allShows;
     let SHOW_ID = 82;
     // console.log(allShows.length);
-    fetch('https://api.tvmaze.com/shows/' + SHOW_ID + '/episodes')
+    // fetch('https://api.tvmaze.com/shows/' + SHOW_ID + '/episodes')
+    fetch('https://api.tvmaze.com/shows')
         .then(function(response) {
             return response.json();
             console.log(response);
@@ -147,8 +140,9 @@ function getAPIEpisodes() {
             makePageForEpisodes(episodes);
             allEpisodes = episodes;
             return episodes;
+            console.log(episodes.length);
         })
-        // .then(createEpisodeSelect)
+        .then(createEpisodeSelect)
 
     .catch(function(err) {
         console.log(err);
@@ -166,10 +160,20 @@ function getShowIds(getShowId) {
     selectShow.id = "showId";
     header.appendChild(selectShow);
     selectShow.add(new Option('Show All Shows', '0'));
+
     let inputText = document.createElement('text');
     console.log(getShowId.length);
-    // select.style.display = "block";
-    // let sortList = showList.name.sort();
+    ////// show order 
+    getShowId.sort((a, b) => {
+            if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                return 1;
+            } else if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                return -1;
+            } else {
+                return 0;
+            }
+        })
+        //////////////////
     getShowId.forEach((show) => {
         console.log(`${show.id}`);
 
@@ -194,7 +198,6 @@ function getShowIds(getShowId) {
                         console.log(err);
 
                     });
-
             }
 
         })
