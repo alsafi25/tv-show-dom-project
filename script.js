@@ -114,23 +114,14 @@ function setup() {
     allEpisodes = getAPIEpisodes();
     allShows = getAllShows();
     showIds = getAllShows();
-    // createShowSelect(allShows);
     getShowIds(showIds);
     makePageForEpisodes(allEpisodes);
     createEpisodeSelect(allEpisodes);
-
-    // getAPIEpisodes(allShows);
 }
-
-
-
 // This function should retrieve the JSON from the TVMaze API, using fetch.
-// function getShowIds(showIds){}
+
 function getAPIEpisodes() {
-    let showIds = allShows;
-    let SHOW_ID = 82;
-    // console.log(allShows.length);
-    // fetch('https://api.tvmaze.com/shows/' + SHOW_ID + '/episodes')
+
     fetch('https://api.tvmaze.com/shows')
         .then(function(response) {
             return response.json();
@@ -162,7 +153,7 @@ function getShowIds(getShowId) {
     selectShow.add(new Option('Show All Shows', '0'));
 
     let inputText = document.createElement('text');
-    console.log(getShowId.length);
+
     ////// show order 
     getShowId.sort((a, b) => {
             if (a.name.toLowerCase() > b.name.toLowerCase()) {
@@ -185,7 +176,7 @@ function getShowIds(getShowId) {
                 fetch('https://api.tvmaze.com/shows/' + show.id + '/episodes')
                     .then(function(response) {
                         return response.json();
-                        console.log(response);
+
                     })
                     .then(episodes => {
                         makePageForEpisodes(episodes);
@@ -216,9 +207,9 @@ function createShowSelect(showList) {
     selectShow.add(new Option('Show All Shows', '0'));
     let inputText = document.createElement('text');
     console.log(showList.length);
-    // let sortList = showList.name.sort();
+
     showList.forEach((show) => {
-        // console.log(`${show.id}, ${show.name}`);
+
         selectShow.add(new Option(show.name, show.name));
     });
 }
@@ -260,7 +251,6 @@ function createEpisodeSelect(episodeList) {
     header.appendChild(select);
     select.add(new Option('Show All Episodes', '0'));
     let inputText = document.createElement('text');
-    // console.log(episodeList);
 
     episodeList.forEach((episode) => {
         select.add(new Option(episode.name, `${episode.name}`));
@@ -312,8 +302,5 @@ function liveSearchFunction() {
         span.innerText = `Displaying${newList.length}/${i} episodes`;
     }
 }
-
-
-
 
 window.onload = setup;
